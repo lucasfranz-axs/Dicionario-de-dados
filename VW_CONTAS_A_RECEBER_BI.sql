@@ -30,9 +30,6 @@ SELECT con.usu_codcon                  AS codcon,
        tcr.sittit                      AS sittit,
        nfv.sitnfv                      AS sitnfv,
        tcr.vlrori                      AS vlrori,
-       tcr.vlrabe                      AS vlrabe,
-       tcr.vctori                      AS vctori,
-       tcr.vctpro                      AS vctpro,
        tcr.datppt                      AS datppt,
        CASE
            WHEN tcr.ultpgt = TO_DATE('31/12/1900', 'DD/MM/YYYY') THEN NULL
@@ -182,5 +179,6 @@ WHERE tcr.codemp IN ( 12, 13, 21, 22, 23,
                       24 )
       AND tcr.codtpt IN ( '', '01', 'FAT', 'ADT' )
       AND cli.codcli NOT IN ( 122, 1432 ) -- REMOVER OS CLIENTES COOPERATIVA E CONSÓRCIO 01
-ORDER BY nfv.cptfat DESC,
+ORDER BY nfv.cptfat ASC,
          tcr.numtit;
+         ----comentário
